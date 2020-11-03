@@ -1,0 +1,33 @@
+.login-form {
+    width: 90%;
+    background: #fff;
+    margin:20px auto !important;
+    padding: 10px 20px;
+}
+
+
+.ant-form-item-control-input-content{
+    .ant-row {
+        display: inline-block;
+    }
+}
+.verification-code-wrapper{
+    display: inline-block;
+    margin-left: 10px;
+}
+.forget-password-wrapper{
+    display: inline-block;
+    margin-left: 20px;
+    height: 32px;
+    line-height: 32px;
+    color: #999;
+    font-size: 12px;
+    cursor: pointer;
+}
+.verificationcode-wrappre{
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 20px;
+    width: 100px;
+    height: 32px;
+}

@@ -1,0 +1,28 @@
+{
+  "name": "ts_demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --watch src -e ts,tsx --exec ts-node ./src/app.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/koa": "^2.11.4",
+    "@types/node": "^14.11.8",
+    "koa": "^2.13.0",
+    "koa-bodyparser": "3",
+    "koa-router": "^9.4.0",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.4.14",
+    "svg-captcha": "^1.4.0"
+  },
+  "types": "./src/types/index.d.ts",
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
+    "nodemon": "^2.0.4"
+  }
+}

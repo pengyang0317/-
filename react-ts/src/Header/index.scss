@@ -1,0 +1,39 @@
+.header-container{
+    height: 60px;
+    line-height: 60px;
+    width: 100%;
+    background: #404553;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    a {
+        color:rgba(255,255,255,.7); 
+    }
+    ul {
+        display: flex;
+        li{
+            width: 113px;
+            text-align: center;
+            transition: all .2s;
+           
+            &:hover {
+                color: #fff;
+                font-weight: bold;
+            }
+        }
+
+    }
+    &-left {
+        color:rgba(255,255,255,.7);   
+        display: flex;
+         > div:first-child {
+            width: 200px;
+            height: 100%;
+            text-align: center;
+        }
+
+    }
+    &-right {
+        color:rgba(255,255,255,.7);  
+    }
+  }

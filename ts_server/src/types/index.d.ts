@@ -1,0 +1,1 @@
+declare type ctxType = { request: { body: { username: any; password: any; }; }; body: { code: string; data: {}; message: string; }; }
