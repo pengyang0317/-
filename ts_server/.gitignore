@@ -114,3 +114,6 @@ dist
 .vscode-test
 
 # End of https://www.toptal.com/developers/gitignore/api/node
+
+
+git remote add origin https://github.com/pengyang0317/my_project.git
