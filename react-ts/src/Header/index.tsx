@@ -1,10 +1,9 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {connect} from 'react-redux'
 
 import './index.scss';
 const Header = (props: any) => {
-	console.log(props)
 	const {dispatch} = props
     const  register = () => {
 		dispatch({type:'CHANGEACTIVEKEY',data: "2"})

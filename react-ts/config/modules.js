@@ -63,7 +63,7 @@ function getAdditionalModulePaths(options = {}) {
  */
 function getWebpackAliases(options = {}) {
   const baseUrl = options.baseUrl;
-
+  
   if (!baseUrl) {
     return {};
   }

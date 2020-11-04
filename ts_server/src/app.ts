@@ -16,14 +16,18 @@ var c = svgCaptcha.create();
 
 type ctxType = { request: { body: { username: any; password: any; }; }; body: { code:any; data: {}; message: string; }; }
 
-router.get('/getVerificationCode', async (ctx: {body: { code: any | number; data: any; message: string; }},next: any)=> {
+router.get('/getVerificationCode', async (ctx: {body: any},next: any)=> {
+  const {data,text} = svgCaptcha.create({
+    width: 100,
+    height: 32,
+    fontSize: 46,
+    ignoreChars: '0o1i',
+    noise: Math.random() * 5, 
+    color: true ,
+  })
     ctx.body= {
       code: '0000',
-      data: svgCaptcha.create({
-        width: 100,
-        height: 32,
-        fontSize: 32
-      }),
+      data: data,
       message: '获取验证码成功了'
     }
 })

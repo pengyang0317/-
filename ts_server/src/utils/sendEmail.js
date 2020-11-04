@@ -15,11 +15,11 @@ let transporter = nodemailer.createTransport({
 function sendMail(mail, code, call) {
 	// 发送的配置项
 	let mailOptions = {
-		from: '"Express-demo" <234277894@qq.com>', // 发送方
+		from: '"彭泽" <234277894@qq.com>', // 发送方
 		to: mail, //接收者邮箱，多个邮箱用逗号间隔
-		subject: '欢迎来到"Express-demo"', // 标题
-		text: 'Hello world?', // 文本内容
-		html: '<p>这里是"Express-demo"详情请点击:</p><a href="https://www.jianshu.com/u/5cdc0352bf01">点击跳转</a>', //页面内容
+		subject: '彭泽的网站找回密码', // 标题
+		text: '找回密码?', // 文本内容
+		html: '<p>忘记密码了:</p><a href="https://www.baidu.com">点击跳转</a>', //页面内容
 		// attachments: [{//发送文件
 		// 		filename: 'index.html', //文件名字
 		// 		path: './index.html' //文件路径
