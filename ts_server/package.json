@@ -15,9 +15,11 @@
     "@types/node": "^14.11.8",
     "koa": "^2.13.0",
     "koa-bodyparser": "3",
+    "koa-combine-routers": "^4.0.2",
     "koa-router": "^9.4.0",
     "mysql": "^2.18.1",
     "nodemailer": "^6.4.14",
+    "redis": "^3.0.2",
     "svg-captcha": "^1.4.0"
   },
   "types": "./src/types/index.d.ts",

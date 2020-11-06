@@ -1,7 +1,10 @@
 import axios from '../utils/request'
 
-  const getCode = () => {
-    return axios.get('/getVerificationCode')
+  const getCaptcha = (uuid: string) => {
+    return axios.get('/public/getCaptcha', {
+      params: { sid: uuid}
+    })
+  
   }
   
   const forget = (option:object) => {
@@ -10,4 +13,4 @@ import axios from '../utils/request'
     })
   }
   
-  export { getCode, forget }
+  export { getCaptcha, forget }

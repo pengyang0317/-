@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Input, Button, message, Modal } from 'antd';
+import { Form, Input, Button, Modal } from 'antd';
 import { connect } from 'react-redux';
 import './login.scss';
 import { Tabs } from 'antd';
 import API from '../api/api';
-import {getCode} from '../api/login'
+import {getCaptcha} from '../api/login'
 import { loginFinish ,isShow} from '../type';
+import { v4 as uuidv4 } from 'uuid';
 
 const { Home } = API;
 
@@ -62,30 +63,31 @@ const retrievepasswordPages = (isShowFun: isShow) => {
 	);
 };
 
-const Login = (val: string) => {
+const Login = (val: string) => {	
 	let loginOrRegister = val === '1' ? '登录' : '注册';
 	let [ verificationcode, setVerificationcode ] = useState();
 	let [ retrievepasswordvisible, setRetrievepasswordvisible ] = useState(false);
 	const [ form ] = Form.useForm();
 	const onFinish = (values: loginFinish) => {
+		console.log(values)
 		if (loginOrRegister === '注册') {
 			Home.registereduser(values).then((res) => {
 				console.log(res.data);
 			});
 		} else {
 			console.log(`我是登录${values}`);
-			Home.loginUser(values).then((res: { code?: string; data?: object; message?: string }) => {
-				if (res.code === '0000') {
-					message.success(res.message);
-				} else {
-					message.error(res.message);
-				}
-			});
+			
+			// Home.loginUser(values).then((res: { code?: string; data?: object; message?: string }) => {
+			// 	if (res.code === '0000') {
+			// 		message.success(res.message);
+			// 	} else {
+			// 		message.error(res.message);
+			// 	}
+			// });
 		}
 	};
 
 	const onFinishFailed = (errorInfo: any) => {
-		console.log(form.getFieldsValue());
 		console.log('Failed:', errorInfo);
 	};
 	const changeVerification = () => {
@@ -102,9 +104,11 @@ const Login = (val: string) => {
 
 	useEffect(() => {
 		_getCode();
+	
 	}, []);
 	const _getCode = () => {
-		getCode().then(res => {
+		let uuid = uuidv4()
+		getCaptcha(uuid).then(res => {
 			setVerificationcode(res.data);
 		})
 	};
@@ -168,7 +172,7 @@ const Login = (val: string) => {
 					<span
 						className="verificationcode-wrappre"
 						onClick={changeVerification}
-						dangerouslySetInnerHTML={{ __html: verificationcode }}
+						dangerouslySetInnerHTML={{ __html: verificationcode as unknown as string}}
 					/>
 				</div>
 			</Form.Item>
@@ -198,10 +202,10 @@ const Login = (val: string) => {
 const HeaderTab = (defaultActiveKey: string, changeKkey: ((activeKey: string) => void) | undefined) => (
 	<Tabs defaultActiveKey={defaultActiveKey} onChange={changeKkey}>
 		<TabPane tab="登录" key="1">
-			{ defaultActiveKey == "1" && Login('1')}
+			{ defaultActiveKey === "1" && Login('1')}
 		</TabPane>
 		<TabPane tab="注册" key="2">
-			{defaultActiveKey == "2" &&Login('2')}
+			{defaultActiveKey === "2" &&Login('2')}
 		</TabPane>
 	</Tabs>
 );
